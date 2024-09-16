@@ -1,4 +1,3 @@
-local requests = http_request or request
 local HttpService = game:GetService("HttpService")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
 local player = game.Players.LocalPlayer
@@ -42,13 +41,7 @@ local function updateUser()
         Body = HttpService:JSONEncode({ username = username, gems = gemCount, status = "online", huges = hugecount })
     }
 
-    local response = requests(data)
-    if response.Success then
-        print("User data updated successfully")
-    else
-        warn("Failed to update user data:", response.StatusMessage)
-    end
-end
+
 
 updateUser()
 
